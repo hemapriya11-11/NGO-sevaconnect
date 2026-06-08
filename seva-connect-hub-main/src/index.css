@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core brand colors - Trust & Warmth */
+    --background: 45 30% 97%;
+    --foreground: 200 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 25% 15%;
+
+    /* Deep teal - trust, growth, reliability */
+    --primary: 175 45% 30%;
+    --primary-foreground: 45 30% 97%;
+
+    /* Warm amber - hope, accessibility, warmth */
+    --secondary: 35 85% 55%;
+    --secondary-foreground: 200 25% 15%;
+
+    --muted: 45 20% 92%;
+    --muted-foreground: 200 15% 45%;
+
+    /* Soft sage accent */
+    --accent: 145 25% 88%;
+    --accent-foreground: 175 45% 25%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 45 15% 85%;
+    --input: 45 15% 85%;
+    --ring: 175 45% 30%;
+
+    --radius: 0.75rem;
+
+    /* Custom semantic colors */
+    --success: 145 60% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 35 85% 55%;
+    --warning-foreground: 200 25% 15%;
+    --info: 200 80% 50%;
+    --info-foreground: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(175 45% 30%) 0%, hsl(175 50% 40%) 50%, hsl(145 40% 45%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(35 85% 55%) 0%, hsl(25 90% 60%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(45 30% 98%) 100%);
+    --gradient-overlay: linear-gradient(180deg, hsla(175 45% 30% / 0.9) 0%, hsla(175 45% 20% / 0.95) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px hsla(200 25% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsla(200 25% 15% / 0.08), 0 2px 4px -2px hsla(200 25% 15% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsla(200 25% 15% / 0.1), 0 4px 6px -4px hsla(200 25% 15% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsla(200 25% 15% / 0.1), 0 8px 10px -6px hsla(200 25% 15% / 0.05);
+    --shadow-glow: 0 0 20px hsla(175 45% 30% / 0.15);
+    --shadow-warm: 0 4px 14px hsla(35 85% 55% / 0.25);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 175 45% 30%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 145 25% 92%;
+    --sidebar-accent-foreground: 175 45% 25%;
+    --sidebar-border: 45 15% 88%;
+    --sidebar-ring: 175 45% 30%;
+  }
+
+  .dark {
+    --background: 200 25% 10%;
+    --foreground: 45 30% 95%;
+
+    --card: 200 25% 12%;
+    --card-foreground: 45 30% 95%;
+
+    --popover: 200 25% 12%;
+    --popover-foreground: 45 30% 95%;
+
+    --primary: 175 50% 45%;
+    --primary-foreground: 200 25% 10%;
+
+    --secondary: 35 80% 50%;
+    --secondary-foreground: 200 25% 10%;
+
+    --muted: 200 20% 18%;
+    --muted-foreground: 45 15% 65%;
+
+    --accent: 145 25% 20%;
+    --accent-foreground: 145 40% 70%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 20% 20%;
+    --input: 200 20% 20%;
+    --ring: 175 50% 45%;
+
+    --sidebar-background: 200 25% 8%;
+    --sidebar-foreground: 45 30% 90%;
+    --sidebar-primary: 175 50% 45%;
+    --sidebar-primary-foreground: 200 25% 10%;
+    --sidebar-accent: 200 20% 15%;
+    --sidebar-accent-foreground: 145 40% 70%;
+    --sidebar-border: 200 20% 18%;
+    --sidebar-ring: 175 50% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .btn-hero {
+    @apply bg-secondary text-secondary-foreground font-semibold px-8 py-4 rounded-full transition-all duration-300;
+    box-shadow: var(--shadow-warm);
+  }
+
+  .btn-hero:hover {
+    @apply scale-105;
+    box-shadow: 0 6px 20px hsla(35, 85%, 55%, 0.35);
+  }
+
+  .btn-outline-hero {
+    @apply bg-transparent border-2 border-white/80 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300;
+  }
+
+  .btn-outline-hero:hover {
+    @apply bg-white/10 border-white;
+  }
+
+  .card-elevated {
+    @apply bg-card rounded-2xl transition-all duration-300;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-elevated:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-hero);
+  }
+
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .status-pending {
+    @apply bg-warning/15 text-warning;
+  }
+
+  .status-approved {
+    @apply bg-success/15 text-success;
+  }
+
+  .status-rejected {
+    @apply bg-destructive/15 text-destructive;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-border bg-background transition-all duration-200;
+  }
+
+  .input-field:focus {
+    @apply outline-none ring-2 ring-primary/20 border-primary;
+  }
+
+  .nav-link {
+    @apply text-foreground/60 hover:text-primary transition-all duration-300 font-semibold text-[13px] uppercase tracking-wider px-4 py-2 rounded-lg relative;
+  }
+
+  .nav-link:hover {
+    @apply bg-primary/5;
+  }
+
+  .nav-link-active {
+    @apply text-primary font-bold bg-primary/8;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes scaleIn {
+    from { 
+      opacity: 0; 
+      transform: scale(0.95); 
+    }
+    to { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
+}
